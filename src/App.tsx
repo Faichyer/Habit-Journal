@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import HabitJournal from './components/HabitJournal'
+import Home from './pages/Home'
 
 function App() {
 	const [solution, setSolution] = useState(null)
@@ -16,11 +17,8 @@ function App() {
 	}, [])
 
 	return (
-		<div className="App text-center text-base font-quicksand">
-			<h1 className="text-2xl px-5 border-b-2 border-b-slate-100 text-gray-800">
-				HabitJournal
-			</h1>
-			{solution && <HabitJournal solution={solution} />}
+		<div className="text-center text-base font-quicksand">
+			<Home />
 		</div>
 	)
 }
