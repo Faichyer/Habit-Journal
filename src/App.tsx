@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from 'react'
+import HabitJournal from './components/HabitJournal'
 
 function App() {
-  const [count, setCount] = useState(0)
+	const [solution, setSolution] = useState(null)
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+	useEffect(() => {
+		fetch('http://localhost:3001/solutions')
+			.then((res) => res.json())
+			.then((json) => {
+				const randomSolution =
+					json[Math.floor(Math.random() * json.length)]
+
+				setSolution(randomSolution)
+			})
+	}, [])
+
+	return (
+		<div className="App text-center text-base font-quicksand">
+			<h1 className="text-2xl px-5 border-b-2 border-b-slate-100 text-gray-800">
+				HabitJournal
+			</h1>
+			{solution && <HabitJournal solution={solution} />}
+		</div>
+	)
 }
 
 export default App
