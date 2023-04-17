@@ -13,10 +13,15 @@ type SidebarProps = {}
 const Sidebar = (props: SidebarProps) => {
 	const menus = [
 		{ name: 'Dashboard', link: '/', icon: MdOutlineDashboard },
-		{ name: 'Account', link: '/', icon: AiOutlineUser },
-		{ name: 'Habits', link: '/', icon: BsCalendar2Check },
-		{ name: 'Analytics', link: '/', icon: TbReportAnalytics, margin: true },
-		{ name: 'Setting', link: '/', icon: RiSettings4Line },
+		{ name: 'Account', link: '/account', icon: AiOutlineUser },
+		{ name: 'Habits', link: '/habits', icon: BsCalendar2Check },
+		{
+			name: 'Analytics',
+			link: '/analytics',
+			icon: TbReportAnalytics,
+			margin: true,
+		},
+		{ name: 'Setting', link: '/settings', icon: RiSettings4Line },
 	]
 	const [open, setOpen] = useState(true)
 
