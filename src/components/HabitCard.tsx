@@ -36,12 +36,6 @@ const HabitCard = ({
 					<a className="block mt-10 w-full px-4 py-3 font-medium tracking-wide text-center capitalize transition-colors duration-300 transform bg-red-400 rounded-[14px] hover:bg-red-500 focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80">
 						View the habit
 					</a>
-					<a
-						target="_blank"
-						className="block mt-1.5 w-full px-4 py-3 font-medium tracking-wide text-center capitalize transition-colors duration-300 transform rounded-[14px] hover:bg-[#F2ECE7] hover:text-[#000000dd] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80"
-					>
-						Download app
-					</a>
 				</div>
 			</div>
 		</div>
