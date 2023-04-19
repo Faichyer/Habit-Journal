@@ -1,12 +1,9 @@
-import Sidebar from '../components/Sidebar'
-
 type HomeProps = {}
 
 const Home = (props: HomeProps) => {
 	return (
-		<div className="min-h-screen flex flex-row">
-			<Sidebar />
-			<div>Next demain</div>
+		<div className="w-full h-full">
+			<h1 className="mt-4 text-4xl">Welcome, Miki</h1>
 		</div>
 	)
 }

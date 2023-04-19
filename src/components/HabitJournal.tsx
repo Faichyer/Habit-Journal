@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import useHabitJournal from '../hooks/useHabitJournal'
-import { SolutionType } from '../types/solution.type'
+import { SolutionType } from '../types/habit.type'
 
 type HabitJournalProps = {
 	solution: SolutionType
