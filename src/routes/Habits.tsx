@@ -3,7 +3,7 @@ import PageTitle from '../components/PageTitle'
 import IsagiWorkout from '../assets/isagi_workout.png'
 import KurzgesagtHabitJournal from '../assets/kurzgesagt_habit_journal.jpg'
 import Gratefulness from '../assets/grateful.jpg'
-import HabitCard from '../components/HabitCard'
+import HabitCard from '../components/habits/HabitCard'
 
 type HabitsProps = {}
 

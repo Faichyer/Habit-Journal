@@ -5,13 +5,13 @@ type HabitJournalProps = {
 	// solution: SolutionType
 }
 
-function useHabitJournal({ solution }: HabitJournalProps) {
+function useHabitJournal(props: HabitJournalProps) {
 	const [turn, setTurn] = useState(0)
 	const [currentGuess, setCurrentGuess] = useState('')
 	const [guesses, setGuesses] = useState([])
 	const [history, setHistory] = useState([] as String[])
 	const [isCorrect, setIsCorrect] = useState(false)
-
+	/*
 	const formatGuess = () => {
 		let solutionArray = [...solution.word]
 		let formattedGuess = [...currentGuess].map((letter) => {
@@ -77,6 +77,7 @@ function useHabitJournal({ solution }: HabitJournalProps) {
 	}
 
 	return { turn, currentGuess, guesses, isCorrect, handleKeyup }
+	*/
 }
 
 export default useHabitJournal
