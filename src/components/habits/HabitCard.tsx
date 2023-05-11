@@ -1,17 +1,25 @@
 import React from 'react'
-import { HabitProps } from '../types/habit.type'
+import { HabitProps } from '../../types/habit.type'
+import { useNavigate } from 'react-router-dom'
 
 const HabitCard = ({
+	id,
 	cardImg,
 	cardName,
 	description,
 	date,
 	tracks,
 }: HabitProps) => {
+	const navigate = useNavigate()
+
+	const handleViewHabitClick = () => {
+		navigate(`/habits/:${id}`)
+	}
+
 	// const cardImg = 'https://i.redd.it/ma1p1g2t11u91.png'
 	return (
-		<div>
-			<div className="w-96 mx-auto rounded-xl mt-4 shadow-md shadow-slate-200">
+		<div className="w-96 mx-auto">
+			<div className="rounded-xl mt-4 shadow-md shadow-slate-200 hover:shadow-lg">
 				<div
 					className="bg-center bg-cover h-56 w-full rounded-xl"
 					style={{
@@ -33,7 +41,10 @@ const HabitCard = ({
 						{description}
 					</p>
 
-					<a className="block mt-10 w-full px-4 py-3 font-medium tracking-wide text-center capitalize transition-colors duration-300 transform bg-red-400 rounded-[14px] hover:bg-red-500 focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80">
+					<a
+						className="block mt-10 w-full px-4 py-3 font-medium tracking-wide text-center transition-colors duration-300 transform bg-red-400 rounded-[14px] hover:bg-red-500 cursor-pointer"
+						onClick={handleViewHabitClick}
+					>
 						View the habit
 					</a>
 				</div>
