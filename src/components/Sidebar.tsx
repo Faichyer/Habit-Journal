@@ -10,7 +10,7 @@ import KurzgesagtDuck from '../assets/kurzgesagt-duck.png'
 
 type SidebarProps = {}
 
-const Sidebar = (props: SidebarProps) => {
+const Sidebar = () => {
 	const menus = [
 		{ name: 'Dashboard', link: '/', icon: MdOutlineDashboard },
 		{ name: 'Account', link: '/account', icon: AiOutlineUser },

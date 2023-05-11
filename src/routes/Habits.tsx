@@ -40,7 +40,7 @@ const Habits = (props: HabitsProps) => {
 				'Be grateful to the persons that helped you during your life bro',
 			tracks: [
 				{ id: 1, trackName: 'Thank one person a day', completed: true },
-				{ id: 2, trackName: 'Stop this 420 stuff', completed: true },
+				{ id: 2, trackName: 'Stop this Cat120 stuff', completed: true },
 				{ id: 3, trackName: 'Sleep early everyday', completed: true },
 			],
 		},
