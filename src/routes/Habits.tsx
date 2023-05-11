@@ -1,50 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PageTitle from '../components/PageTitle'
-import IsagiWorkout from '../assets/isagi_workout.png'
-import KurzgesagtHabitJournal from '../assets/kurzgesagt_habit_journal.jpg'
-import Gratefulness from '../assets/grateful.jpg'
 import HabitCard from '../components/habits/HabitCard'
+import { HabitProps } from '../types/habit.type'
 
-type HabitsProps = {}
+const Habits = () => {
+	const [habits, setHabits] = useState<HabitProps[]>([])
 
-const Habits = (props: HabitsProps) => {
-	const habits = [
-		{
-			id: 1,
-			cardName: 'Workout',
-			cardImg: IsagiWorkout,
-			description:
-				'Try to go to gym everyday, almost and eat well accordingly to the main objective',
-			tracks: [
-				{ id: 1, trackName: 'Go to Gym', completed: true },
-				{ id: 2, trackName: 'Sleep early', completed: true },
-				{ id: 3, trackName: 'Eat well', completed: true },
-			],
-		},
-		{
-			id: 2,
-			cardName: 'Habit Journal',
-			cardImg: KurzgesagtHabitJournal,
-			description:
-				'This habit is to code a little bit everyday in order to finish this project ASAP',
-			tracks: [
-				{ id: 1, trackName: 'Code this shit', completed: true },
-				{ id: 2, trackName: 'Learn new technologies', completed: true },
-			],
-		},
-		{
-			id: 3,
-			cardName: 'Grateful',
-			cardImg: Gratefulness,
-			description:
-				'Be grateful to the persons that helped you during your life bro',
-			tracks: [
-				{ id: 1, trackName: 'Thank one person a day', completed: true },
-				{ id: 2, trackName: 'Stop this Cat120 stuff', completed: true },
-				{ id: 3, trackName: 'Sleep early everyday', completed: true },
-			],
-		},
-	]
+	useEffect(() => {
+		fetch('http://localhost:3001/habits')
+			.then((res) => res.json())
+			.then((json) => {
+				setHabits(json)
+			})
+	}, [])
+
 	return (
 		<div className="h-full w-screen">
 			<PageTitle title="Habits" />

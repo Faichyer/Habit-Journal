@@ -8,6 +8,7 @@ import Account from './routes/Account'
 import Analytics from './routes/Analytics'
 import Settings from './routes/Settings'
 import Home from './pages/Home'
+import HabitJournal from './components/habits/HabitJournal'
 
 const router = createBrowserRouter([
 	{
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
 			{
 				path: '/habits',
 				element: <Habits />,
+			},
+			{
+				path: '/habits/:id',
+				element: <HabitJournal />,
 			},
 			{
 				path: '/account',

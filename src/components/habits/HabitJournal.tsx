@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react'
-import useHabitJournal from '../../hooks/useHabitJournal'
+import { HabitProps } from '../../types/habit.type'
 
-type HabitJournalProps = {}
+type HabitJournalProps = {
+	habit: HabitProps
+}
 
-function HabitJournal(props: HabitJournalProps) {
+function HabitJournal({ habit }: HabitJournalProps) {
 	// const { currentGuess, handleKeyup } = useHabitJournal({ solution })
 
 	// useEffect(() => {
