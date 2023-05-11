@@ -1,21 +1,24 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { HabitProps } from '../../types/habit.type'
+import { useParams } from 'react-router-dom'
 
-type HabitJournalProps = {
-	habit: HabitProps
-}
+type HabitJournalProps = {}
 
-function HabitJournal({ habit }: HabitJournalProps) {
-	// const { currentGuess, handleKeyup } = useHabitJournal({ solution })
+function HabitJournal({}: HabitJournalProps) {
+	const [currentHabit, setCurrentHabit] = useState<HabitProps>()
+	const { id } = useParams()
 
-	// useEffect(() => {
-	// 	window.addEventListener('keyup', handleKeyup)
-
-	// 	return () => window.removeEventListener('keyup', handleKeyup)
-	// }, [handleKeyup])
+	useEffect(() => {
+		fetch(`http://localhost:3001/habits/${id?.split(':')[1]}`)
+			.then((res) => res.json())
+			.then((json) => {
+				setCurrentHabit(json)
+			})
+	}, [])
 
 	return (
 		<div>
+			{currentHabit && currentHabit.cardName}
 			{/* <div>Solution is: {solution.word}</div>
 			<div>Current guess is: {currentGuess}</div> */}
 		</div>
