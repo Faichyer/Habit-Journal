@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { HabitProps } from '../../types/habit.type'
 import { useParams } from 'react-router-dom'
+import PageTitle from '../PageTitle'
 
 type HabitJournalProps = {}
 
 function HabitJournal({}: HabitJournalProps) {
-	const [currentHabit, setCurrentHabit] = useState<HabitProps>()
+	const [currentHabit, setCurrentHabit] = useState<HabitProps>({
+		id: 0,
+		cardName: '',
+		tracks: [],
+	})
 	const { id } = useParams()
 
 	useEffect(() => {
@@ -17,10 +22,10 @@ function HabitJournal({}: HabitJournalProps) {
 	}, [])
 
 	return (
-		<div>
-			{currentHabit && currentHabit.cardName}
-			{/* <div>Solution is: {solution.word}</div>
-			<div>Current guess is: {currentGuess}</div> */}
+		<div className="mx-auto">
+			<PageTitle title={currentHabit.cardName} />
+
+			<div></div>
 		</div>
 	)
 }

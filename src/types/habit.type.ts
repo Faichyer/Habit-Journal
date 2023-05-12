@@ -1,8 +1,8 @@
 export type HabitProps = {
 	id: number
-	cardImg: string
+	cardImg?: string
 	cardName: string
-	description: string
+	description?: string
 	tracks: trackHabit[]
 	date?: Date
 }
