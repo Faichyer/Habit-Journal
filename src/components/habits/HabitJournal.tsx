@@ -17,7 +17,7 @@ function HabitJournal({}: HabitJournalProps) {
 	const [value, onChange] = useState(new Date())
 
 	useEffect(() => {
-		fetch(`http://localhost:3001/habits/${id?.split(':')[1]}`)
+		fetch(`http://localhost:3000/habits/${id?.split(':')[1]}`)
 			.then((res) => res.json())
 			.then((json) => {
 				setCurrentHabit(json)

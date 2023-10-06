@@ -7,10 +7,6 @@ type Props = {}
 const Calendar = (props: Props) => {
 	const weekDays = [
 		{
-			day: 'Sunday',
-			shortDay: 'Sun',
-		},
-		{
 			day: 'Monday',
 			shortDay: 'Mon',
 		},
@@ -34,16 +30,61 @@ const Calendar = (props: Props) => {
 			day: 'Saturday',
 			shortDay: 'Sat',
 		},
+		{
+			day: 'Sunday',
+			shortDay: 'Sun',
+		},
 	]
 
 	const days = []
+
+	// const daysInMonth = new Date().getDaysInMonth();
+	const currentDate = new Date()
+	const currentMonth = currentDate.getMonth()
+	const currentYear = currentDate.getFullYear()
+
+	const getWeeksInMonth = () => {
+		const weeks = []
+		let currentDay = new Date(currentYear, currentMonth, 1)
+
+		// Calculate the day of the week for the first day of the month
+		const firstDayOfWeek = currentDay.getDay()
+
+		// Calculate the offset to align with Monday as the start of the week
+		const offset = firstDayOfWeek === 0 ? 6 : firstDayOfWeek - 1
+
+		// Calculate the date of the first cell in the calendar
+		currentDay.setDate(currentDay.getDate() - offset)
+
+		while (currentDay.getMonth() <= currentMonth) {
+			const week = []
+			for (let i = 0; i < 7; i++) {
+				week.push(new Date(currentDay))
+				currentDay.setDate(currentDay.getDate() + 1)
+			}
+			weeks.push(week)
+		}
+
+		return weeks
+	}
+
+	const weeksInMonth = getWeeksInMonth()
+	console.log(weeksInMonth)
 	return (
 		<div>
+			<h2 className="text-center text-2xl font-bold my-4">
+				{currentDate.toLocaleString('en', { month: 'long' })}{' '}
+				{currentYear}
+			</h2>
 			<table className="w-full">
 				<thead>
 					<tr>
 						{weekDays.map((el) => (
-							<CalendarHead day={el.day} shortDay={el.shortDay} />
+							<CalendarHead
+								key={el.day}
+								day={el.day}
+								shortDay={el.shortDay}
+							/>
 						))}
 					</tr>
 				</thead>
@@ -74,33 +115,21 @@ const Calendar = (props: Props) => {
 								</div>
 							</div>
 						</td> */}
-					<tr className="text-center h-20">
+					{/* <tr className="text-center h-20">
 						{[1, 2, 3, 4, 5, 6, 7].map((el) => (
 							<CalendarDayTile day={el} key={el} />
 						))}
-					</tr>
-
-					{/* <!--         line 1 --> */}
-
-					<tr className="text-center h-20">
-						{[1, 2, 3, 4, 5, 6, 7].map((el) => (
-							<CalendarDayTile day={el} />
-						))}
-					</tr>
-					{/* <!--         line 1 -->
-
-                     <!--         line 2 --> */}
-					<tr className="text-center h-20">
-						{[1, 2, 3, 4, 5, 6, 7].map((el) => (
-							<CalendarDayTile day={el} />
-						))}
-					</tr>
-					<tr className="text-center h-20">
-						{[1, 2, 3, 4, 5, 6, 7].map((el) => (
-							<CalendarDayTile day={el} />
-						))}
-					</tr>
-					{/* <!--         line 4 --> */}
+					</tr> */}
+					{weeksInMonth.map((week, index) => (
+						<tr key={index} className="text-center h-16">
+							{week.map((day) => (
+								<CalendarDayTile
+									day={day}
+									key={day.toDateString()}
+								/>
+							))}
+						</tr>
+					))}
 				</tbody>
 			</table>
 		</div>

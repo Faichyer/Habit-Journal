@@ -7,7 +7,7 @@ const Habits = () => {
 	const [habits, setHabits] = useState<HabitProps[]>([])
 
 	useEffect(() => {
-		fetch('http://localhost:3001/habits')
+		fetch('http://localhost:3000/habits')
 			.then((res) => res.json())
 			.then((json) => {
 				setHabits(json)
