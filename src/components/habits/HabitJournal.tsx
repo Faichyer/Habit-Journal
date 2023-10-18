@@ -11,7 +11,7 @@ function HabitJournal({}: HabitJournalProps) {
 	const [currentHabit, setCurrentHabit] = useState<HabitProps>({
 		id: 0,
 		cardName: '',
-		tracks: [],
+		habitsRecords: [],
 	})
 	const { id } = useParams()
 	const [value, onChange] = useState(new Date())
@@ -20,6 +20,7 @@ function HabitJournal({}: HabitJournalProps) {
 		fetch(`http://localhost:3000/habits/${id?.split(':')[1]}`)
 			.then((res) => res.json())
 			.then((json) => {
+				console.log(json)
 				setCurrentHabit(json)
 			})
 	}, [])
@@ -46,7 +47,7 @@ function HabitJournal({}: HabitJournalProps) {
 			<div className="flex flex-col justify-start mt-8">
 				<h2 className="mx-4 text-2xl font-bold">Schedule</h2>
 				<div className="mt-8 flex flex-row justify-around w-full">
-					<Calendar />
+					<Calendar habit={currentHabit} />
 					<div className="w-40">Hello</div>
 				</div>
 			</div>
