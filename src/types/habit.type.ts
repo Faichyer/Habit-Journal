@@ -3,12 +3,17 @@ export type HabitProps = {
 	cardImg?: string
 	cardName: string
 	description?: string
+	habitsRecords: HabitsRecordsProps[]
+}
+
+export type HabitsRecordsProps = {
+	id: number
+	date: Date
 	tracks: trackHabit[]
-	date?: Date
 }
 
 type trackHabit = {
 	id: number
 	trackName: string
-	completed: boolean
+	complete: boolean
 }

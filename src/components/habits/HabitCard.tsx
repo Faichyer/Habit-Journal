@@ -7,8 +7,7 @@ const HabitCard = ({
 	cardImg,
 	cardName,
 	description,
-	date,
-	tracks,
+	habitsRecords,
 }: HabitProps) => {
 	const navigate = useNavigate()
 
@@ -33,8 +32,10 @@ const HabitCard = ({
 					<div className="flex flex-row justify-center">
 						<p className="text-[17px] font-bold text-[#0FB478]">
 							{`Tracks: ${
-								tracks.filter((track) => track.completed).length
-							} / ${tracks.length}`}
+								habitsRecords[0].tracks.filter(
+									(track) => track.complete
+								).length
+							} / ${habitsRecords[0].tracks.length}`}
 						</p>
 					</div>
 					<p className="text-[#7C7C80] font-[15px] mt-6">

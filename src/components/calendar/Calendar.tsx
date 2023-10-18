@@ -1,10 +1,13 @@
 import React from 'react'
 import CalendarHead from './CalendarHead'
 import CalendarDayTile from './CalendarDayTile'
+import { HabitProps } from '../../types/habit.type'
 
-type Props = {}
+type Props = {
+	habit: HabitProps
+}
 
-const Calendar = (props: Props) => {
+const Calendar = ({ habit }: Props) => {
 	const weekDays = [
 		{
 			day: 'Monday',
@@ -125,6 +128,7 @@ const Calendar = (props: Props) => {
 							{week.map((day) => (
 								<CalendarDayTile
 									day={day}
+									habit={habit}
 									key={day.toDateString()}
 								/>
 							))}

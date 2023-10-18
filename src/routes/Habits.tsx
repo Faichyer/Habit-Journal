@@ -25,7 +25,7 @@ const Habits = () => {
 							cardName={habit.cardName}
 							description={habit.description}
 							id={habit.id}
-							tracks={habit.tracks}
+							habitsRecords={habit.habitsRecords}
 							key={habit.id}
 						/>
 					))}
