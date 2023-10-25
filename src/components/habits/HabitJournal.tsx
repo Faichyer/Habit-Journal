@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import PageTitle from '../PageTitle'
 import { FcAlarmClock } from 'react-icons/fc'
 import Calendar from '../calendar/Calendar'
+import HabitBanner from './HabitBanner'
 
 type HabitJournalProps = {}
 
@@ -46,9 +47,15 @@ function HabitJournal({}: HabitJournalProps) {
 			</div>
 			<div className="flex flex-col justify-start mt-8">
 				<h2 className="mx-4 text-2xl font-bold">Schedule</h2>
-				<div className="mt-8 flex flex-row justify-around w-full">
+				<div className="mt-8 flex flex-row justify-around mx-8">
 					<Calendar habit={currentHabit} />
-					<div className="w-40">Hello</div>
+					<HabitBanner
+						cardImg={currentHabit.cardImg}
+						cardName={currentHabit.cardName}
+						description={currentHabit.description}
+						id={currentHabit.id}
+						habitsRecords={currentHabit.habitsRecords}
+					/>
 				</div>
 			</div>
 		</div>

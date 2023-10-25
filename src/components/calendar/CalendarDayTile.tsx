@@ -8,7 +8,8 @@ type Props = {
 
 const CalendarDayTile = ({ day, habit }: Props) => {
 	const isCurrentMonth = day.getMonth() === new Date().getMonth()
-	const isCurrentDay = day.getDate() === new Date().getDate()
+	const isCurrentDay =
+		day.getDate() === new Date().getDate() && isCurrentMonth
 	const hasDayAHabitRecord =
 		habit.habitsRecords.filter(
 			(hb) => day.getDate() === new Date(hb.date).getDate()
