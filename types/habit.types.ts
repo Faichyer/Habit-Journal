@@ -1,37 +1,38 @@
 export type HabitProps = {
-    id: number
-    cardImg: string
-    cardName: string
+    id: string
+    card_img: string
+    card_name: string
     description?: string
-    createdAt: Date
+    created_at: Date
 }
 
 export type HabitsRecordsProps = {
-    id: number
-    createdAt: Date,
+    id: string
+    created_at: Date,
     date: Date,
     trigger: string,
-    habitsId: number
+    habits_id: string
 }
 
 export type QuestionProps = {
     id: number
     question: string
-    createdAt: Date
+    created_at: Date
 }
 
 export type ReflectionProps = {
     id: number
-    questionId: number
+    question_id: number
     answer: string
-    createdAt: Date
-    habitsRecordsId: number
+    created_at: Date
+    habits_records_id: number
 }
 
 export type TrackProps = {
     id: number
-    createdAt: Date
+    created_at: Date
     name: string
-    habitsRecordsId: number
+    habits_records_id: number
     completed: boolean
 }
+
