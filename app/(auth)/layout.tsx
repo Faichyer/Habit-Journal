@@ -21,11 +21,11 @@ export default async function LoginLayout({ children }: {children: React.ReactNo
                 <div className="relative z-20 mt-auto">
                     <blockquote className="space-y-2">
                         <p className="text-lg">
-                            &ldquo;This library has saved me countless hours of work and
-                            helped me deliver stunning designs to my clients faster than
-                            ever before.&rdquo;
+                            &ldquo;After carefully researching the science behind habits,
+                            talking to experts, and trying it ourselves, we created this app.
+                            It contains a step by step tutorial that will help you to change your life in a sustainable way.&rdquo;
                         </p>
-                        <footer className="text-sm">Sofia Davis</footer>
+                        <footer className="text-sm">Kurzgesagt</footer>
                     </blockquote>
                 </div>
             </div>

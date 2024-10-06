@@ -27,7 +27,7 @@ function Page() {
 
     return (
         <React.Fragment>
-            <AuthForm handleSubmit={handleSubmit}/>
+            <AuthForm/>
 
             {error && (
                 <div className='error'>{error}</div>

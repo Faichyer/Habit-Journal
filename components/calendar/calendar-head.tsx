@@ -1,21 +1,54 @@
-import React from 'react'
+import { Button } from "@/components/ui/button";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { useDateFormatter } from "@react-aria/i18n";
+import type { CalendarState } from "@react-stately/calendar";
+import type { AriaButtonProps } from "@react-types/button";
+import type { DOMAttributes, FocusableElement } from "@react-types/shared";
+import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 
 type Props = {
-    day: string
-    shortDay: string
-}
+	state: CalendarState;
+	calendarProps: DOMAttributes;
+	prevButtonProps: AriaButtonProps;
+	nextButtonProps: AriaButtonProps;
+};
 
-const CalendarHead = ({ day, shortDay }: Props) => {
-    return (
-        <th className="p-2 border-r h-10 lg:w-24 md:w-24 sm:w-20 w-10 xl:text-sm text-xs">
-			<span className="xl:block lg:block md:block sm:block hidden">
-				{day}
-			</span>
-            <span className="xl:hidden lg:hidden md:hidden sm:hidden block">
-				{shortDay}
-			</span>
-        </th>
-    )
-}
+const CalendarHead = ({
+	state,
+	calendarProps,
+	prevButtonProps,
+	nextButtonProps,
+}: Props) => {
+	const monthDateFormatter = useDateFormatter({
+		month: "long",
+		year: "numeric",
+		timeZone: state.timeZone,
+	});
 
-export default CalendarHead
+	const [monthName, _, year] = monthDateFormatter
+		.formatToParts(state.visibleRange.start.toDate(state.timeZone))
+		.map((part) => part.value);
+
+	return (
+		<div className="flex items-center pb-4">
+			<VisuallyHidden>
+				<h2>{calendarProps["aria-label"]}</h2>
+			</VisuallyHidden>
+			{/* biome-ignore lint/a11y/useHeadingContent: <explanation> */}
+			<h2
+				aria-hidden
+				className="flex-1 align-center font-bold text-md text-gray-12"
+			>
+				{monthName} <span className="text-gray-11">{year}</span>
+			</h2>
+			<button {...prevButtonProps}>
+				<ChevronLeftIcon className="size-4" />
+			</button>
+			<button className={"ml-2"} {...nextButtonProps}>
+				<ChevronRightIcon className="size-4" />
+			</button>
+		</div>
+	);
+};
+
+export default CalendarHead;

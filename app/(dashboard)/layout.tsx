@@ -1,27 +1,18 @@
-import React from "react";
-import Sidebar from "@/components/layout/sidebar";
+import DashboardLayout from "@/components/layout/dashboard-layout";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import {createServerComponentClient} from "@supabase/auth-helpers-nextjs";
-import {redirect} from "next/navigation";
-import ShadSidebar from "@/components/layout/shad-sidebar";
-import Header from "@/components/layout/header";
+import { redirect } from "next/navigation";
+import type React from "react";
 
-export default async function DashboardLayout({ children }: {children: React.ReactNode}) {
-    const supabase = createServerComponentClient({ cookies })
-    const { data, error } = await supabase.auth.getUser()
+export default async function Layout({
+	children,
+}: { children: React.ReactNode }) {
+	const supabase = createServerComponentClient({ cookies });
+	const { data, error } = await supabase.auth.getUser();
 
-    if (!data.user) {
-        redirect('/login')
-    }
+	if (!data.user) {
+		redirect("/login");
+	}
 
-    return (
-        <div className="flex min-h-screen w-full flex-col bg-muted/40 ">
-            {/*<Sidebar />*/}
-            <ShadSidebar />
-            <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
-                <Header />
-                {children}
-            </div>
-        </div>
-    )
+	return <DashboardLayout>{children}</DashboardLayout>;
 }
