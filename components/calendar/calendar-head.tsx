@@ -1,16 +1,21 @@
 import { Button } from "@/components/ui/button";
+import { convertMouseEventToPressEvent } from "@/lib/utils";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { useDateFormatter } from "@react-aria/i18n";
 import type { CalendarState } from "@react-stately/calendar";
 import type { AriaButtonProps } from "@react-types/button";
-import type { DOMAttributes, FocusableElement } from "@react-types/shared";
+import type {
+	DOMAttributes,
+	FocusableElement,
+	PressEvent,
+} from "@react-types/shared";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 
 type Props = {
 	state: CalendarState;
 	calendarProps: DOMAttributes;
-	prevButtonProps: AriaButtonProps;
-	nextButtonProps: AriaButtonProps;
+	prevButtonProps: AriaButtonProps<"button">;
+	nextButtonProps: AriaButtonProps<"button">;
 };
 
 const CalendarHead = ({
@@ -41,10 +46,17 @@ const CalendarHead = ({
 			>
 				{monthName} <span className="text-gray-11">{year}</span>
 			</h2>
-			<button {...prevButtonProps}>
+			<button
+				onClick={(e) => convertMouseEventToPressEvent(e, "press")}
+				{...prevButtonProps}
+			>
 				<ChevronLeftIcon className="size-4" />
 			</button>
-			<button className={"ml-2"} {...nextButtonProps}>
+			<button
+				onClick={(e) => convertMouseEventToPressEvent(e, "press")}
+				className={"ml-2"}
+				{...nextButtonProps}
+			>
 				<ChevronRightIcon className="size-4" />
 			</button>
 		</div>

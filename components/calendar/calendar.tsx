@@ -2,7 +2,6 @@
 
 import CalendarGrid from "@/components/calendar/calendar-grid";
 import CalendarHead from "@/components/calendar/calendar-head";
-import { Progress } from "@/components/ui/progress";
 import {
 	createCalendar,
 	getLocalTimeZone,
@@ -21,10 +20,6 @@ function Calendar(props: CalendarProps<DateValue>) {
 	const { locale } = useLocale();
 	const state = useCalendarState({
 		...props,
-		minValue: today(getLocalTimeZone()),
-		defaultValue: today(getLocalTimeZone()),
-		value: today(getLocalTimeZone()),
-
 		visibleDuration: { months: 1 },
 		locale,
 		createCalendar,

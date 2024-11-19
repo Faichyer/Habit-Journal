@@ -1,4 +1,4 @@
-import Calendar from "@/components/calendar/calendar";
+import HabitCalendar from "@/components/calendar/habit-calendar";
 import {
 	getHabitsRecords,
 	getSelectedHabit,
@@ -17,7 +17,6 @@ import {
 } from "@/types/habit.types";
 import { Clock } from "lucide-react";
 import React from "react";
-import { FcAlarmClock } from "react-icons/fc";
 
 async function HabitsPage({ params }: { params: { id: string } }) {
 	const currentHabit: HabitProps = (await getSelectedHabit(params.id)) || null;
@@ -65,7 +64,7 @@ async function HabitsPage({ params }: { params: { id: string } }) {
 						</div>
 					</CardHeader>
 					<CardContent>
-						<Calendar />
+						<HabitCalendar />
 					</CardContent>
 				</Card>
 				<div className={"flex flex-col justify-between gap-4 w-full"}>
