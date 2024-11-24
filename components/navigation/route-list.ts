@@ -55,7 +55,7 @@ export function getMenuList(pathname: string): Group[] {
 							label: "All Habits",
 						},
 						{
-							href: "/habits/new",
+							href: "/habits/new-habit",
 							label: "New Habit",
 						},
 					],
