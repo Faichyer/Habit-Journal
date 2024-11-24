@@ -1,4 +1,3 @@
-import HabitCard from "@/components/habits/habit-card";
 import PageTitle from "@/components/typography/page-title";
 import { FocusCards } from "@/components/ui/focus-card";
 import type { HabitProps } from "@/types/habit.types";
