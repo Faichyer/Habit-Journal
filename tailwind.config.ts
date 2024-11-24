@@ -25,6 +25,7 @@ const config = {
 			},
 			screens: {
 				mobile: "425px",
+				laptopL: "1440px",
 			},
 			colors: {
 				primary: "#e11d48",

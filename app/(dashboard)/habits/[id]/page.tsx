@@ -17,9 +17,13 @@ import {
 } from "@/types/habit.types";
 import { Clock } from "lucide-react";
 import React from "react";
+import {notFound} from "next/navigation";
 
 async function HabitsPage({ params }: { params: { id: string } }) {
-	const currentHabit: HabitProps = (await getSelectedHabit(params.id)) || null;
+	const currentHabit: HabitProps = await getSelectedHabit(params.id) || null;
+	if (!currentHabit) {
+		return notFound();
+	}
 	const habitsRecords: HabitsRecordsProps[] =
 		(await getHabitsRecords(params.id)) || [];
 	const questions: QuestionProps[] = (await getTwoRandomQuestions()) || [];
