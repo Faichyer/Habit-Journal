@@ -51,7 +51,7 @@ const CalendarDayTile = ({
 				<div
 					className={cn(
 						"size-full rounded-md flex items-center justify-center",
-						"text-gray-12 h-8 w-8 mobile:w-10 mobile:h-10 sm:w-20 sm:h-20 lg:h-10 lg:w-10 xl:w-18 xl:h-18 text-sm font-semibold",
+						"text-gray-12 h-8 w-8 mobile:w-10 mobile:h-10 sm:w-20 sm:h-20 lg:h-10 lg:w-10 laptopL:h-14 laptopL:w-14 xl:w-18 xl:h-18 text-sm font-semibold",
 						isDisabled
 							? isDateToday
 								? "cursor-defaut"
